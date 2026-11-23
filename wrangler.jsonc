@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // A static-assets-only Worker: Cloudflare serves the Hugo output directly and
+  // no Worker code runs. Build with `npm run build` before deploying.
+  "name": "ohretail-docs",
+  "compatibility_date": "2026-10-18",
+  "assets": {
+    "directory": "./public",
+    // Serve Hugo's 404.html, with a 404 status, for unknown paths.
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+  "routes": [{ "pattern": "docs.ohretail.com", "custom_domain": true }],
+  "workers_dev": false,
+  "preview_urls": false
+}

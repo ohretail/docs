@@ -1,0 +1,17 @@
+{{- /*
+  A boxed note. The type sets the edge colour and the word that leads it, so the
+  meaning never depends on colour alone.
+
+    {{< callout note >}}Markdown here.{{< /callout >}}
+    {{< callout type="warning" title="Before you start" >}}…{{< /callout >}}
+
+  Types: note (violet), tip (mint), warning (sun), danger (berry).
+*/ -}}
+{{- $type := .Get "type" | default (.Get 0) | default "note" -}}
+{{- $words := dict "note" "Note" "tip" "Tip" "warning" "Warning" "danger" "Important" -}}
+{{- $word := index $words $type -}}
+{{- if not $word }}{{ errorf "callout: unknown type %q in %s" $type .Page.File.Path }}{{ end -}}
+<aside class="callout callout--{{ $type }}">
+  <p class="callout-title">{{ .Get "title" | default $word }}</p>
+  {{ .Inner | .Page.RenderString (dict "display" "block") }}
+</aside>

@@ -1,0 +1,71 @@
+name: Report a problem
+description: Something in an Oh! Retail app is broken or doesn't work as the guides describe.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this. **This issue will be public.**
+        Don't include passwords, PINs, invitation links, register setup files,
+        customer details, card numbers, or log files. Crop or blur screenshots.
+        If we need a log, we'll tell you how to send it privately.
+        For anything private, [contact us](https://ohretail.com/contact) instead.
+  - type: dropdown
+    id: app
+    attributes:
+      label: App
+      options:
+        - Oh! Retail POS — browser register
+        - Oh! Retail POS — installed Windows register
+        - Oh! Retail POS — back office (items, reports, settings)
+        - Simple Scheduler
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: What did you do?
+      description: Step by step, so we can do the same.
+      placeholder: |
+        1. Opened Register 2
+        2. Scanned a six-pack
+        3. Chose Payment, then Cash
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead?
+      description: Copy any message as it appeared, leaving out names, account details, or anything else private. Screenshots help, cropped or blurred.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version (installed registers)
+      description: From Back Office → Local registers, in the register's Installed version column.
+      placeholder: "2026.11.20.1"
+  - type: dropdown
+    id: impact
+    attributes:
+      label: How much is this getting in the way?
+      options:
+        - We can't take sales
+        - We have a workaround
+        - It's an annoyance
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: This report contains no passwords, setup files, customer details, or card numbers.
+          required: true

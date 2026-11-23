@@ -1,0 +1,28 @@
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tell us what you'd like to stop working around. **Discussions are public**,
+        so leave out customer details and anything private.
+  - type: dropdown
+    id: app
+    attributes:
+      label: App
+      options:
+        - Oh! Retail POS
+        - Simple Scheduler
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's the problem?
+      description: What happens at your store today, and why it's a pain.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would help?
+      description: Your idea, if you have one. A rough description is fine.

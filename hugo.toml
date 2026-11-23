@@ -1,0 +1,47 @@
+baseURL = "https://docs.ohretail.com/"
+languageCode = "en-us"
+title = "Oh! Retail Help"
+enableGitInfo = true
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "rss"]
+
+[params]
+  description = "Guides for setting up and running Oh! Retail POS: store setup, items, the register menu, and installed Windows registers."
+  repo = "https://github.com/ohretail/docs"
+  branch = "main"
+  website = "https://ohretail.com"
+  contact = "https://ohretail.com/contact"
+
+[outputs]
+  home = ["html", "json"]
+
+[markup]
+  [markup.goldmark.renderer]
+    # Content is written by us, never by visitors. Raw HTML stays off anyway,
+    # so pages only use Markdown and the shortcodes in layouts/_shortcodes.
+    unsafe = false
+  [markup.goldmark.parser.attribute]
+    block = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+  [markup.highlight]
+    # Classes instead of inline styles, so the Content-Security-Policy needs no
+    # 'unsafe-inline' for styles.
+    noClasses = false
+    codeFences = true
+    guessSyntax = false
+
+[menus]
+  [[menus.main]]
+    name = "Oh! Retail POS"
+    pageRef = "/pos"
+    weight = 10
+  [[menus.main]]
+    name = "Get help"
+    pageRef = "/help"
+    weight = 20
+
+[module]
+  [module.hugoVersion]
+    min = "0.160.0"

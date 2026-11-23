@@ -1,0 +1,7 @@
+/public/
+/resources/_gen/
+.hugo_build.lock
+node_modules/
+.wrangler/
+.dev.vars*
+.env*

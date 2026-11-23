@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="docs docs--single">
+  <main id="main" class="doc" tabindex="-1">
+    <header class="doc-head">
+      <h1>{{ .Title }}</h1>
+    </header>
+    <form class="hero-search" role="search" action="{{ .RelPermalink }}" method="get" data-search-page>
+      <label class="visually-hidden" for="page-search-input">Search the guides</label>
+      <input id="page-search-input" type="search" name="q" placeholder="Search the guides" autocomplete="off" data-search-page-input>
+      <button class="button button--primary" type="submit">Search</button>
+    </form>
+    <p class="search-count" role="status" data-search-count></p>
+    <ol class="search-list" data-search-list></ol>
+    <div class="moment moment--inline" hidden data-search-empty>
+      <img src="{{ "brand/face-brows.svg" | relURL }}" width="72" height="72" alt="">
+      <p>Nothing matched. Try fewer words, or <a href="{{ site.Params.repo }}/discussions">ask in Discussions</a>.</p>
+    </div>
+    <noscript><p>Search needs JavaScript. You can still <a href="{{ "/" | relURL }}">browse every guide</a>.</p></noscript>
+  </main>
+</div>
+{{ end }}

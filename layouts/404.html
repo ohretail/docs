@@ -1,0 +1,13 @@
+{{ define "main" }}
+<main id="main" class="moment" tabindex="-1">
+  <img src="{{ "brand/face-wide.svg" | relURL }}" width="120" height="120" alt="">
+  <h1>Oh! That page isn’t here.</h1>
+  <p>It may have moved, or the link may be mistyped. Try a search, or start from the guides.</p>
+  <form class="hero-search" role="search" action="{{ "search/" | relURL }}" method="get">
+    <label class="visually-hidden" for="missing-search-input">Search the guides</label>
+    <input id="missing-search-input" type="search" name="q" placeholder="Search the guides" autocomplete="off">
+    <button class="button button--primary" type="submit">Search</button>
+  </form>
+  <p><a href="{{ "/" | relURL }}">Go to all guides</a></p>
+</main>
+{{ end }}

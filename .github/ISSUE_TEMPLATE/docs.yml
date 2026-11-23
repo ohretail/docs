@@ -1,0 +1,24 @@
+name: Problem with a guide
+description: A page on docs.ohretail.com is wrong, unclear, or out of date.
+labels: [documentation]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **This issue will be public.** Don't include passwords, PINs, invitation
+        or reset links, register setup files, or customer details.
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The address of the guide.
+      placeholder: https://docs.ohretail.com/pos/items/
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong or missing?
+      description: Quote the part that's wrong if you can, and tell us what you saw in the app instead.
+    validations:
+      required: true

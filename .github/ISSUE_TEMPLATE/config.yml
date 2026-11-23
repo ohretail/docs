@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask a question
+    url: https://github.com/ohretail/docs/discussions/categories/q-a
+    about: How do I…? Can the app…? Ask in Discussions, where other stores can answer too.
+  - name: Suggest a feature
+    url: https://github.com/ohretail/docs/discussions/categories/ideas
+    about: Ideas and feature requests go in Discussions so others can add to them.
+  - name: Billing, account access, or private store data
+    url: https://ohretail.com/contact
+    about: Contact us directly. Issues are public, so never post passwords, setup files, or customer details here.
+  - name: Report a security problem
+    url: https://github.com/ohretail/docs/security/advisories/new
+    about: Report it privately, not in a public issue.

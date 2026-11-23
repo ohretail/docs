@@ -1,0 +1,29 @@
+{{ define "main" }}
+{{- $hasSide := ne .FirstSection site.Home }}
+<div class="docs{{ if not $hasSide }} docs--single{{ end }}">
+  {{- if $hasSide }}{{ partial "sidebar.html" . }}{{ end }}
+  <main id="main" class="doc" tabindex="-1">
+    <header class="doc-head">
+      {{ partial "breadcrumbs.html" . }}
+      <h1>{{ .Title }}</h1>
+      {{- with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+      {{- if or .Params.status .GitInfo }}
+      <p class="doc-meta">
+        {{- partial "status.html" .Params.status }}
+        {{- with .Lastmod }}<span>Updated <time datetime="{{ .Format "2006-01-02" }}">{{ .Format "January 2, 2006" }}</time></span>{{ end }}
+      </p>
+      {{- end }}
+    </header>
+    <div class="prose">
+      {{ .Content }}
+    </div>
+    {{ partial "page-foot.html" . }}
+  </main>
+  {{- if and (ne .Params.toc false) (gt (len .Fragments.Headings) 0) (ge (len .Fragments.Identifiers) 3) }}
+  <nav class="toc" aria-label="On this page">
+    <p class="toc-title">On this page</p>
+    {{ .TableOfContents }}
+  </nav>
+  {{- end }}
+</div>
+{{ end }}
