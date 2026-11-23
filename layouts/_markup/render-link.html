@@ -1,0 +1,17 @@
+{{- /* Resolves links to other pages by their content path, so a renamed or
+       mistyped page fails the build instead of shipping a broken link. */ -}}
+{{- $u := urls.Parse .Destination -}}
+{{- $href := .Destination -}}
+{{- $external := or $u.IsAbs (strings.HasPrefix .Destination "mailto:") -}}
+{{- if and (not $external) $u.Path -}}
+  {{- with or (.PageInner.GetPage $u.Path) (site.GetPage $u.Path) -}}
+    {{- $href = .RelPermalink -}}
+    {{- with $u.Fragment }}{{ $href = printf "%s#%s" $href . }}{{ end -}}
+  {{- else -}}
+    {{- if not (fileExists (printf "static/%s" (strings.TrimPrefix "/" $u.Path))) -}}
+      {{- errorf "%s: link to %q does not resolve to a page or static file" .Page.File.Path .Destination -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<a href="{{ $href | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} rel="noopener"{{ end }}>{{ .Text }}</a>
+{{- /* Trim trailing whitespace so links followed by punctuation stay tight. */ -}}

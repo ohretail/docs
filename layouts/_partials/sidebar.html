@@ -1,0 +1,27 @@
+{{- $current := . }}
+{{- with .FirstSection }}
+<aside class="side" aria-label="{{ .Title }} guides">
+  <button class="side-toggle" type="button" aria-expanded="false" aria-controls="side-nav" data-side-toggle>
+    <span>{{ .Title }} guides</span>
+  </button>
+  <nav id="side-nav" class="side-nav" data-side-nav>
+    <a class="side-title" href="{{ .RelPermalink }}"{{ if eq . $current }} aria-current="page"{{ end }}>{{ .Title }}</a>
+    <ul>
+      {{- range .Pages.ByWeight }}
+      {{- if .IsSection }}
+      <li class="side-group">
+        <a class="side-group-title" href="{{ .RelPermalink }}"{{ if eq . $current }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
+        <ul>
+          {{- range .Pages.ByWeight }}
+          <li><a href="{{ .RelPermalink }}"{{ if eq . $current }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a></li>
+          {{- end }}
+        </ul>
+      </li>
+      {{- else }}
+      <li><a href="{{ .RelPermalink }}"{{ if eq . $current }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a></li>
+      {{- end }}
+      {{- end }}
+    </ul>
+  </nav>
+</aside>
+{{- end }}

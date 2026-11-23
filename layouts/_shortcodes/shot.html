@@ -1,0 +1,16 @@
+{{- /*
+  A screenshot with an 800px and a 1600px WebP in static/img/.
+
+    {{< shot name="pos-register" alt="…" caption="…" >}}
+*/ -}}
+{{- $name := .Get "name" -}}
+{{- $alt := .Get "alt" -}}
+{{- if not $alt }}{{ errorf "shot %q in %s needs alt text" $name .Page.File.Path }}{{ end -}}
+{{- $small := printf "img/%s-800.webp" $name -}}
+{{- $large := printf "img/%s-1600.webp" $name -}}
+{{- if not (fileExists (printf "static/%s" $large)) }}{{ errorf "shot: static/%s is missing" $large }}{{ end -}}
+<figure class="shot">
+  <img src="{{ $small | relURL }}" srcset="{{ $small | relURL }} 800w, {{ $large | relURL }} 1600w"
+    sizes="(min-width: 60rem) 46rem, 100vw" width="1600" height="{{ .Get "height" | default 1000 }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+  {{- with .Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

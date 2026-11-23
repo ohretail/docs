@@ -1,0 +1,24 @@
+<header class="site-head">
+  <div class="site-head-row">
+    <a class="brand" href="{{ "/" | relURL }}">
+      <picture>
+        <source srcset="{{ "brand/wordmark-dark.svg" | relURL }}" media="(prefers-color-scheme: dark)">
+        <img src="{{ "brand/wordmark-light.svg" | relURL }}" width="420" height="160" alt="Oh! Retail">
+      </picture>
+      <span class="brand-tag">Help</span>
+    </a>
+    <form class="site-search" role="search" action="{{ "search/" | relURL }}" method="get" data-search>
+      <label class="visually-hidden" for="site-search-input">Search the guides</label>
+      <input id="site-search-input" type="search" name="q" placeholder="Search the guides" autocomplete="off" spellcheck="false"
+        aria-controls="site-search-results" aria-expanded="false" data-search-input>
+      <kbd class="search-key" aria-hidden="true">/</kbd>
+      <div id="site-search-results" class="search-pop" role="region" aria-label="Search results" hidden data-search-results></div>
+    </form>
+    <nav class="site-nav" aria-label="Main">
+      {{- $current := . }}
+      {{- range site.Menus.main }}
+      <a href="{{ .URL }}"{{ if or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{- end }}
+    </nav>
+  </div>
+</header>

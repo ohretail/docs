@@ -1,0 +1,12 @@
+{{- /* A quiet status dot plus words, following the ohretail/assets badge rules.
+       Pass a status name: available, pilot or sandbox. */ -}}
+{{- $labels := dict
+  "available" "Available"
+  "pilot" "Pilot"
+  "sandbox" "Sandbox only"
+-}}
+{{- with . }}
+{{- $label := index $labels . }}
+{{- if not $label }}{{ errorf "Unknown status %q. Use available, pilot or sandbox." . }}{{ end }}
+<span class="status status--{{ . }}"><span class="status-dot" aria-hidden="true"></span>{{ $label }}</span>
+{{- end }}

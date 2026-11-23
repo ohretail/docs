@@ -1,0 +1,23 @@
+{{- /* Search index, served at /index.json and read by assets/js/site.js. */ -}}
+{{- $items := slice }}
+{{- range where site.Pages "Params.search" "!=" false }}
+  {{- if or .IsPage .IsSection }}
+    {{- if not .IsHome }}
+      {{- $headings := slice }}
+      {{- range $id, $h := .Fragments.HeadingsMap }}
+        {{- $headings = $headings | append (dict "id" $id "title" ($h.Title | plainify)) }}
+      {{- end }}
+      {{- $section := "" }}
+      {{- with .FirstSection }}{{ if not .IsHome }}{{ $section = .LinkTitle }}{{ end }}{{ end }}
+      {{- $items = $items | append (dict
+        "title" .Title
+        "url" .RelPermalink
+        "section" $section
+        "description" (.Description | default "")
+        "headings" $headings
+        "text" (.Plain | truncate 6000 "")
+      ) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- $items | jsonify }}

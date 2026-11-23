@@ -1,0 +1,62 @@
+{{ define "main" }}
+<main id="main" tabindex="-1">
+  <section class="hero">
+    <div class="hero-row">
+      <div>
+        <h1>{{ .Params.heading | default .Title }}</h1>
+        {{- with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+        <form class="hero-search" role="search" action="{{ "search/" | relURL }}" method="get">
+          <label class="visually-hidden" for="hero-search-input">Search the guides</label>
+          <input id="hero-search-input" type="search" name="q" placeholder="Try “cashier PIN” or “bottle deposit”" autocomplete="off">
+          <button class="button button--primary" type="submit">Search</button>
+        </form>
+      </div>
+      <img class="hero-face" src="{{ "favicon.svg" | relURL }}" width="160" height="160" alt="">
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="start-title">
+    <div class="band-row">
+      <h2 id="start-title" class="band-title">Oh! Retail POS guides</h2>
+      <ol class="cards">
+        {{- range .Params.featured }}
+        {{- with site.GetPage . }}
+        <li>
+          <a class="card" href="{{ .RelPermalink }}">
+            <span class="card-title">{{ .LinkTitle }}</span>
+            {{- with .Description }}<span class="card-text">{{ . }}</span>{{ end }}
+            {{- with .Params.status }}{{ if ne . "available" }}{{ partial "status.html" . }}{{ end }}{{ end }}
+          </a>
+        </li>
+        {{- else }}
+        {{- errorf "home: featured page %q not found" . }}
+        {{- end }}
+        {{- end }}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band band--sunken" aria-labelledby="help-title">
+    <div class="band-row">
+      <h2 id="help-title" class="band-title">Still stuck?</h2>
+      <ul class="help-grid">
+        <li>
+          <h3>Ask a question</h3>
+          <p>Other stores and our team answer in GitHub Discussions. Search there first: someone may have asked already.</p>
+          <a href="{{ site.Params.repo }}/discussions">Open Discussions</a>
+        </li>
+        <li>
+          <h3>Report a problem</h3>
+          <p>Something broken or behaving oddly? File an issue with the steps that led to it.</p>
+          <a href="{{ site.Params.repo }}/issues/new/choose">Report a problem</a>
+        </li>
+        <li>
+          <h3>Talk to us privately</h3>
+          <p>For billing, account access, or anything with store data in it, contact us directly.</p>
+          <a href="{{ site.Params.contact }}">Contact us</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+{{ end }}

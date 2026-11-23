@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="docs">
+  {{ partial "sidebar.html" . }}
+  <main id="main" class="doc" tabindex="-1">
+    <header class="doc-head">
+      {{ partial "breadcrumbs.html" . }}
+      <h1>{{ .Title }}</h1>
+      {{- with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+      {{- with .Params.status }}<p class="doc-meta">{{ partial "status.html" . }}</p>{{ end }}
+    </header>
+    {{- with .Content }}
+    <div class="prose">{{ . }}</div>
+    {{- end }}
+    <ul class="guide-list">
+      {{- range .Pages.ByWeight }}
+      <li>
+        <a href="{{ .RelPermalink }}">
+          <span class="guide-title">{{ .LinkTitle }}{{ with .Params.status }}{{ if ne . "available" }} {{ partial "status.html" . }}{{ end }}{{ end }}</span>
+          {{- with .Description }}<span class="guide-text">{{ . }}</span>{{ end }}
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+  </main>
+</div>
+{{ end }}

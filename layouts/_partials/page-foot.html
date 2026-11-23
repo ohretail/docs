@@ -1,0 +1,29 @@
+{{- /* Previous and next guides in this section, then ways to fix or ask about the page. */ -}}
+{{- $pages := .CurrentSection.RegularPages.ByWeight }}
+{{- $prev := false }}{{ $next := false }}
+{{- range $i, $p := $pages }}
+  {{- if eq $p $ }}
+    {{- if gt $i 0 }}{{ $prev = index $pages (sub $i 1) }}{{ end }}
+    {{- if lt (add $i 1) (len $pages) }}{{ $next = index $pages (add $i 1) }}{{ end }}
+  {{- end }}
+{{- end }}
+{{- if or $prev $next }}
+<nav class="pager" aria-label="More guides">
+  {{- with $prev }}
+  <a class="pager-prev" href="{{ .RelPermalink }}"><span>Previous</span>{{ .LinkTitle }}</a>
+  {{- end }}
+  {{- with $next }}
+  <a class="pager-next" href="{{ .RelPermalink }}"><span>Next</span>{{ .LinkTitle }}</a>
+  {{- end }}
+</nav>
+{{- end }}
+<aside class="page-help" aria-label="Help with this page">
+  <p><strong>Something unclear or out of date?</strong></p>
+  <ul>
+    <li><a href="{{ site.Params.repo }}/discussions/new?category=q-a">Ask a question</a></li>
+    <li><a href="{{ site.Params.repo }}/issues/new?template=docs.yml&amp;title={{ printf "Docs: %s" .Title | urlquery }}&amp;page={{ .Permalink | urlquery }}">Report a problem with this page</a></li>
+    {{- with .File }}
+    <li><a href="{{ site.Params.repo }}/edit/{{ site.Params.branch }}/content/{{ .Path }}">Suggest an edit on GitHub</a></li>
+    {{- end }}
+  </ul>
+</aside>
