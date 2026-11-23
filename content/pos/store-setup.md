@@ -29,12 +29,14 @@ yours sends something else.
 ## 1. Accept your invitation
 
 1. Open the invitation email and choose the link. It works for 72 hours.
-2. Choose a password of at least 12 characters.
+2. Choose a password of 12 to 72 characters. Accented letters and emoji count
+   as more than one character toward the limit.
 3. You arrive at the **Dashboard**, the home page for your store. Bookmark it.
 
 If the link has expired, ask us or another administrator to send a new
 invitation. On the sign-in page, **Forgot password?** emails a reset link that
-works for one hour.
+works for one hour. If emails don't arrive, an administrator can give you a
+private link instead.
 
 ## 2. Enter your company details
 
@@ -58,12 +60,13 @@ record who made them.
 3. Leave **Administrator** off for cashiers. Administrators also manage users
    and set up registers, which gives them access to private register setup
    files.
-4. Choose **Create invitation**. The person gets an email and chooses their own
-   password.
+4. Choose **Create invitation**. The person gets an email with a link and
+   chooses their own password.
 
-To change someone's type or administrator access later, choose **Edit access**
-beside their name. If an invitation email doesn't arrive, the same page has a
-private invitation link you can share instead. Send it only to that person.
+If the email doesn't arrive, or the page says email delivery isn't set up, the
+same page has a private invitation link to give the person instead. Send it only
+to them, and never post it anywhere public. To change someone's type or
+administrator access later, choose **Edit access** beside their name.
 
 People who leave stay in the list as **disabled** rather than being deleted, so
 the history of what they did stays intact. A store always keeps at least one
@@ -78,7 +81,8 @@ them to get started.
 ## 4. Set up sales tax
 
 Oh! Retail does not come with tax rates. Until you review tax setup, registers
-calculate no tax.
+calculate no tax. Edit taxes in a browser on your store's Oh! Retail site:
+installed registers only use the saved settings.
 
 1. Open **Back Office → Taxes**.
 2. Under **Tax setup**, choose one of the following:
@@ -86,17 +90,26 @@ calculate no tax.
      tax, as in Oregon. You don't need to add any taxes.
    - **Collect the enabled taxes below**. Then choose **Add tax** for each tax
      you collect, with the label printed on receipts, its rate, and the date the
-     rate starts.
+     rate starts. Make sure each tax is enabled and has a rate.
 3. If some departments or items are taxed differently, add an override for that
    department, or on the item's page. An item override wins over a department
    override, which wins over the tax's default.
-4. Choose how tax is rounded, and whether items can be returned without a
-   receipt.
+4. Choose how tax is rounded. Under **Returns without a receipt**, choose
+   whether taxed items need their original receipt to be returned.
 5. Check the result with **Preview a sample basket**, which uses your unsaved
    settings. Then choose **Save tax settings**.
+6. The first time you save either setup choice, Oh! Retail asks you to confirm
+   it: that you've checked the rates and which products are taxed, or that your
+   store collects no general sales tax. Confirm and save again.
 
-Saved changes apply to sales started afterwards. Sales already in progress keep
-the settings they started with.
+Saved changes apply to sales started afterwards and to held sales when they're
+recalled. Sales already in progress keep the settings they started with.
+
+{{< callout type="note" title="Using installed registers?" >}}
+Before you can start collecting tax, every [installed register](local-register/_index.md)
+must be updated and opened, so none can ring a sale without tax. If any aren't,
+saving tells you which ones. Update them, then save again.
+{{< /callout >}}
 
 {{< callout warning >}}
 Check your rates and which products are taxable with your state and local tax
@@ -112,7 +125,8 @@ Every item you sell needs a catalog entry with a price. Follow
 
 {{< callout type="tip" title="Moving from another system?" >}}
 [Contact us](https://ohretail.com/contact) before you type in a large catalog.
-We can often import items, barcodes, and sales history from your current system.
+Tell us what system you use now, and we'll tell you whether we can import your
+items, barcodes, or sales history from it.
 {{< /callout >}}
 
 ## 6. Arrange the register menu
@@ -138,9 +152,11 @@ For a browser register:
 4. In setup, enter your store's Oh! Retail address, pick the printers, choose the
    register number, and select **Start helpers automatically when I sign in to
    Windows**. Then choose **Save & start helpers**.
-5. Back in the browser, choose **Pair this browser with the POS**. Allow local
+5. Setup shows **Pair this browser with the POS**. Open that link in the
+   browser you use for the register, while signed in to Oh! Retail. Allow local
    network access if the browser asks.
-6. Choose **Print test receipt** and **Print test label**.
+6. Back on **Printers on this PC**, choose **Print test receipt** and **Print
+   test label**.
 
 The cash drawer connects to the receipt printer, and the register opens it
 through the printer. Test receipts leave the drawer closed.
@@ -149,15 +165,23 @@ Shelf labels print on 2¼ × 1¼ inch label stock.
 ## 8. Ring a test sale
 
 1. From the dashboard, open your register, for example **Register 1**.
-2. Choose **Open session** and count the cash in the drawer: the number of each
-   coin and bill, not a dollar total. Zero is fine.
-3. Scan an item, or tap it on the menu.
-4. Choose **Payment**, then **Cash**, and tap a bill amount.
-5. Check the receipt, and that the drawer opened.
+2. Choose **Receipts & printer**, then turn on **Automatically print confirmed
+   checkouts on this browser** and **Open drawer with an original cash
+   receipt**, and choose **Save settings & connect**. Receipts don't print
+   automatically until you do this.
+3. Back on the register, choose **Manage Drawer → Open session**, and count the
+   cash in the drawer: the number of each coin and bill, not a dollar total.
+   Zero is fine. Review the count and confirm it.
+4. Scan an item, or tap it on the menu.
+5. Choose **Payment**, then tap a bill amount larger than the total, such as
+   **$20**. The sale completes once the cash covers the total, and the register
+   shows the change due. (Choosing **Cash** instead completes the sale with the
+   exact amount.)
+6. Check the receipt printed and the drawer opened.
 
-To remove the test sale from your reports, choose **History** beside the scan
-bar, select the sale, choose **Void & refund**, pay it back in **Cash**, and
-choose **Complete refund**.
+To cancel out the test sale, choose **History** beside the scan bar, select the
+sale, choose **Void & refund**, pay it back in **Cash**, and choose **Complete
+refund**. Both the sale and the refund stay in your records, marked as voided.
 
 {{< shot name="pos-register" alt="The register with two items in the sale, the Feed then Chicken menu open, and Back and Home buttons above the item tiles" caption="The register. The sale is on the left, and the menu path, Back, and Home sit above the tiles." >}}
 

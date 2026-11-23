@@ -27,13 +27,17 @@ The register shows who is signed in. When you step away or hand over, choose
 **Lock / Switch cashier**. The sale stays where it was, and the next cashier can
 pick it up.
 
+Before you switch, check the register isn't still sending anything, such as a
+scan or payment shown as pending. Anything left unsent stays with you: only you
+can retry it, by signing back in.
+
 - The register locks itself after **five minutes** without a tap or keypress.
 - A PIN sign-in ends after **ten hours**, and whenever the register restarts.
 - While nobody is signed in, the customer screen shows a welcome page.
 
 PIN sign-in covers selling: sales, customer lookup, the drawer, receipts, and
-restarting for an update. To edit items, change settings, or see reports,
-choose **Manager sign-in** and use your email and password.
+restarting for an update. To edit items, print shelf labels, change settings,
+or see reports, choose **Manager sign-in** and use your email and password.
 
 {{< callout type="note" title="Forgotten or locked PIN" >}}
 After too many wrong PINs, the register makes the cashier wait, a little longer
@@ -48,9 +52,20 @@ Installed registers take every kind of sale the browser register does: cash,
 check, and customer charge accounts, split payments, returns, voids, and
 account payments.
 
-For cards, take the payment on your card terminal as usual. When the terminal
-approves it, choose **Card** on the register and confirm the approval. Ask us if
-you'd like an integrated card reader on an installed register.
+How you take cards depends on how your register is set up:
+
+**With a card reader connected to the register**
+: Choose **Card**. The reader asks the customer for their card, and the sale
+  completes once the card is approved. Don't charge the card any other way.
+
+**With a separate card terminal**
+: Choose **Card**, then key the amount into your terminal and run the card.
+  Once the terminal shows it's approved, select **Approved on external
+  terminal** on the register and complete the sale.
+
+If you're not sure which you have, ask us. Approving a card needs your reader or
+terminal to reach the card processor, so cards may not work during an internet
+outage even though the register keeps selling.
 
 ## When the internet goes down
 
@@ -61,18 +76,22 @@ changes to **Changes uploaded**.
 
 While offline, you can still:
 
-- Ring sales, returns, and voids, and take payments.
-- Open and close drawer sessions, and print receipts and labels.
+- Ring sales, returns, and voids, and take cash, check, and account payments.
+- Open and close drawer sessions, and print receipts.
+- Look up this register's past sales in **History**.
 - Sign cashiers in with their PIN or password.
-- Edit items, prices, the register menu, customers, and labels.
+- With a manager's password sign-in: print shelf labels, and edit items,
+  prices, the register menu, and customers.
 
 These wait until you're back online:
 
 - Receiving deliveries, stock counts, and imports.
 - Integrated card readers that connect through Oh! Retail's servers.
 - Inviting or changing users, customer and vendor sign-ins, and email.
-- Store-wide stock levels and reports. They include offline sales once the
-  register has uploaded them.
+- Tax settings, which are only edited on your store's Oh! Retail site.
+- Reports and sales history, which live on your store's Oh! Retail site, and
+  store-wide stock levels. They include offline sales once the register has
+  uploaded them.
 
 {{< callout type="warning" title="Check accounts and returns after an outage" >}}
 While offline, each register checks charge account limits and returns against
@@ -84,8 +103,10 @@ account and sales reports after a long outage.
 ## Changes from other registers
 
 Each register uploads its changes as they happen and checks for changes from
-other registers about every 15 seconds. If two people edit the same item, menu,
-or setting at the same time, the change that uploads last is kept.
+other registers about every 15 seconds. If two people save changes to the same
+item or setting at about the same time, the change that uploads last is kept.
+The menu editor is more careful: if the menu changed since you opened it, it
+keeps your draft on screen instead of saving over the other change.
 
 ## Updates
 

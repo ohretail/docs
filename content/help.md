@@ -27,8 +27,9 @@ is broken or doesn't work as these guides describe. A good report has:
 
 1. Which app, and for a register, whether it's in a browser or installed.
 2. What you did, step by step.
-3. What you expected, and what happened instead, with the exact wording of any
-   message.
+3. What you expected, and what happened instead, with the wording of any
+   message. Leave out names, account details, or anything else private that the
+   message shows.
 4. The version, for installed registers, from **Back Office → Local registers**.
 
 Screenshots help. Crop or blur anything private first.
@@ -41,7 +42,8 @@ they stay searchable. Never post:
 - Passwords, PINs, invitation or reset links, or register **setup files**.
 - Customer names, phone numbers, emails, or account balances.
 - Card numbers, or receipts and screenshots that show them.
-- Log files, unless we ask and you've checked them.
+- Log files such as `pos.log`. If we need one, we'll tell you how to send it
+  privately.
 
 For anything private, such as billing, account access, or a problem that
 involves customer data, [contact us directly](https://ohretail.com/contact).

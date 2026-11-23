@@ -11,29 +11,33 @@ reach every register in the store.
 
 ## Find an item
 
-1. Open **Back Office → Item search**, or choose **Scan an item**.
+There are two ways in, both from **Back Office → Item search**.
+
+To go straight to one item:
+
+1. Choose **Scan an item**.
 2. In **Find an item**, scan a barcode, or type a name, item number, or barcode.
 3. Press {{< kbd "Enter" >}} to open an exact item number or barcode match, or
-   pick the item from the list.
+   pick the item from the suggestions.
 
-A search shows up to 50 matches. Add a word to narrow it down. On a phone or
-tablet, **Scan with camera** reads a barcode with the device's camera.
+On a phone or tablet, **Scan with camera** reads a barcode with the device's
+camera, which is handy at the shelf.
 
-{{< callout tip >}}
-Each item page has **QR code for editing**. Scan the code with a phone to edit
-the same item while you're standing at the shelf.
-{{< /callout >}}
+To browse the catalog, stay on **Item search** and filter by name, department,
+vendor, price, or location. **Recently added** and **Needs setup** show new
+items and items with details still missing. Results come 50 at a time.
 
 ## Create an item
 
 1. Choose **New item**.
 2. In **Item number or barcode**, scan the product's barcode, or type the number
    you want to use.
-3. Enter the **Name**.
+3. Enter the **Name**, and fill in the price, cost, vendor, stock, and location
+   if you know them.
 4. Choose **Create item**.
 
-The item opens on its own page. Choose **Edit item** to add its price,
-department, and the rest of its details (see below).
+The item opens on its own page. Choose **Edit item** to set its **Department**
+and anything else you skipped (see below).
 
 ### Copy a similar item
 
@@ -116,21 +120,35 @@ Each item belongs to at most one product group.
 If an item carries a container deposit, attach your deposit item to it. The
 register then adds the deposit automatically whenever the item is sold.
 
+First, set up deposits for the store, once:
+
+1. Create the deposit itself as an item with a fixed price above zero, such as
+   "Bottle deposit" at $0.10, in a department for deposits.
+2. In **Back Office → Margins & deposit rules**, turn on **Bottle deposit
+   department** for that department and choose **Save departments**.
+3. Under **How bottle deposits are charged**, choose one, then **Save store
+   defaults**:
+   - **One pack deposit per item** (the default): a six-pack gets one $0.60
+     deposit item.
+   - **One deposit per container**: a six-pack gets a $0.10 deposit item × 6.
+
+Then, for each item that carries a deposit:
+
 1. In **Bottle deposit**, pick the deposit in **Bottle deposit item**.
-2. Set **Containers per item**: 1 for a single can, 6 for a six-pack.
+2. If you charge one deposit per container, set **Containers per item**: 1 for
+   a single can, 6 for a six-pack.
 3. Choose **Add bottle deposit**.
 
 The price field then shows **+dep**, and shelf labels print **+dep** under the
 price. Oh! Retail may suggest a deposit based on the item's name. Check the
 suggestion before adding it.
 
-Deposit rates and which departments hold deposit items are store settings, in
-**Back Office → Margins & deposit rules**.
-
 ### Other items that ring up together
 
-**Configure tagalong items** attaches any other item, not just a deposit, so it
-is added whenever this item is sold. Set how many are added per item.
+**Configure tagalong items** attaches other items, not just a deposit, so they
+are added whenever this item is sold. Set how many are added per item. An item
+that rings up as a tagalong can't open a choice or prompt for its price or
+quantity.
 
 ## Register prompts
 
@@ -168,8 +186,9 @@ only one item or choice. Leave the field blank to turn it off.
   for review. Leave it blank to use the department's or the store's target.
 
 **Taxes**
-: Override a tax for this item only, with a reason. See
-  [Set up your store](store-setup.md#4-set-up-sales-tax).
+: Override a tax for this item only, with a reason. Like other tax settings,
+  this is edited on your store's Oh! Retail site, not on an installed register.
+  See [Set up your store](store-setup.md#4-set-up-sales-tax).
 
 ## Shelf labels
 
@@ -184,6 +203,9 @@ label page for more copies or deal labels.
 confirm. It can't be undone, so check you have the right item first. Past sales
 keep their record of it.
 
+An item that's attached to other items as a deposit or tagalong can't be
+deleted until you remove it from those items.
+
 {{< callout tip >}}
 If you only want to stop selling something for a while, remove it from the
 register menu and leave it in the catalog, so its sales history and barcodes
@@ -193,6 +215,6 @@ stay together.
 ## Editing from an installed register
 
 [Installed registers](local-register/_index.md) can edit items even while the
-internet is down. Their changes upload when the connection returns. If two
-people change the same item at the same time, the change that uploads last is
-the one that's kept.
+internet is down, except for taxes. Their changes upload when the connection
+returns. If two people change the same item at the same time, the change that
+uploads last is the one that's kept.

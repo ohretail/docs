@@ -17,7 +17,8 @@ displays, and cashier PINs. You don't need the setup file.
 2. Download the latest installer from **Back Office → Local registers**, on any
    PC, and copy it to the register PC. A copy you kept from installing works too,
    since repair downloads the latest version anyway.
-3. Open `WAT-POS-Setup.exe`.
+3. Open `Oh-Retail-Setup.exe`. A copy saved before the Oh! Retail rename is
+   named `WAT-POS-Setup.exe` and works the same way.
 4. Under **Repair or update an existing register**, select the register, then
    choose **Repair and update**.
 
@@ -82,14 +83,32 @@ missing, [contact us](https://ohretail.com/contact).
 
 A register number can only be installed on one PC at a time.
 
-1. On the old PC, [uninstall the register](#uninstall). This uploads anything
-   still waiting, and stops if something hasn't uploaded.
+1. On the old PC, [get the register ready](#before-you-uninstall), then
+   [uninstall it](#uninstall).
 2. On the new PC, follow [Install a register](install.md) from step 2, with a
    fresh setup file for the same register. You don't need to enroll it again.
+3. Check the new register's recent sales in **History**, and that the drawer and
+   sales reports on your store's Oh! Retail site look right, before you delete
+   the old PC's **Removed** folder.
 
 If the old PC has failed and can't be started, [contact us](https://ohretail.com/contact)
 before installing on a new one. Keep the old PC's drive: sales taken offline that
 never uploaded are only on it.
+
+## Before you uninstall
+
+Uninstall checks that the register's sales and changes have uploaded, but it
+can't see a scan or payment that a cashier's screen hadn't sent yet. So first,
+with the register open:
+
+1. Have each cashier who used the register today sign in and wait until nothing
+   shows as pending. Anything unsent belongs to the cashier who entered it, and
+   only they can retry it.
+2. Complete or void the current sale and every held sale.
+3. If a card payment is in doubt, check it on the card reader or terminal and
+   settle it on the register.
+4. Close the drawer session.
+5. Wait for the status line to show **Changes uploaded**.
 
 ## Uninstall
 
@@ -103,8 +122,9 @@ register, finish up, and try again.
 
 Uninstall removes the desktop shortcut, the start-up entry, and the entry in
 Installed apps. It moves the register's data to a **Removed** folder beside the
-original rather than deleting it. Delete that folder once you're sure you won't
-need its logs or print history.
+original rather than deleting it. Keep that folder until you've checked the
+register's sales appear on your store's Oh! Retail site and you won't need its
+logs or print history.
 
 Uninstalling doesn't un-enroll the register. The register number stays
 installed-only, and you can install it again on the same PC or a replacement.
@@ -113,8 +133,9 @@ installed-only, and you can install it again on the same PC or a replacement.
 
 If a fix here doesn't work, [report a problem](https://github.com/ohretail/docs/issues/new?template=bug.yml).
 Include the register's version from **Back Office → Local registers**, what you
-were doing, and the exact message you saw.
+were doing, and the message you saw. Reports are public, so leave out customer
+names, account details, and anything else private in the message.
 
 The register keeps a log, `pos.log`, in its data folder,
-`%LOCALAPPDATA%\oh-retail-pos\register-N`. If we ask for it, send it to us
-privately rather than attaching it to a public issue.
+`%LOCALAPPDATA%\oh-retail-pos\register-N`. Never attach it to a public issue.
+If we ask for it, we'll tell you how to send it to us privately.

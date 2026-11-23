@@ -47,7 +47,7 @@ Search the item list by name, item number, or department. Search covers the
 whole catalog, so you can find an item from another department and drag it onto
 this one.
 
-**Undo** steps back through your changes until you save.
+**Undo** steps back through your recent changes, up to 30, until you save.
 
 ## Departments
 
@@ -72,18 +72,35 @@ in items from any department.
 **Rename** changes its label and keeps the layout. **Delete menu** removes only
 the menu and its tiles. The items stay in your catalog.
 
+## Menus inside menus
+
+To make a tile that opens another menu, like **Chicken** inside **Feed**:
+
+1. Make the inner menu first, as a [custom menu](#custom-menus) or a
+   department, and fill it with items.
+2. Open the outer menu in the preview.
+3. Pick the inner menu in **Menu to link**, choose **Select menu link**, and tap
+   an empty slot.
+
+On the register, the tile opens the inner menu, and **Back** and **Home** lead
+out again. If the inner menu shouldn't also have its own button down the left
+edge, select it and choose **Hide**. A hidden menu still opens from its link
+tile.
+
 ## Colors
 
-Select a tile or a department and choose **Colors** to pick its background and
-text colors. When you change the background, the text switches to black or
-white, whichever is easier to read. You can still pick your own text color
-afterwards. **Back to items** returns to the item list.
+Tiles use the register's theme colors unless you choose your own. Select an item
+tile or a department and choose **Colors** to pick its **Background** and
+**Foreground** (text) colors. **Use contrasting text** picks black or white,
+whichever is easier to read on your background. **Use theme colors** goes back
+to the theme. **Back to items** returns to the item list.
 
-## Hide a tile
+## Hide an item
 
-**Hide/Show** also works on a single tile. A hidden tile keeps its slot in the
-editor, dimmed, and the register skips it. Use it for seasonal items you'll
-bring back.
+**Hide/Show** also works on an item. A hidden item keeps its slots in the editor,
+dimmed, and the register skips it on **every** menu it's on. It can still be
+scanned and searched. Use it for seasonal items you'll bring back. To take an
+item off just one menu, use **Remove from this menu** instead.
 
 ## Pages and grid size
 
@@ -106,8 +123,13 @@ have one.
 
 ## Save your changes
 
-Choose **Save changes**. Every register gets the new menu. Cashiers reload the
-register page, or reconnect, to see new department names and order.
+Choose **Save changes**. Every register gets the new menu: reload the register
+page, or reconnect, to see it. Installed registers pick up the change once
+they've synced, usually within a minute.
+
+If someone else saved the menu while you were editing, Oh! Retail won't
+overwrite their changes. It keeps your draft on screen so you can choose
+**Reload** and make your changes again.
 
 {{< callout note >}}
 New catalog items are added to the end of their department's menu

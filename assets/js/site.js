@@ -135,21 +135,20 @@ const form = document.querySelector('[data-search]')
 const input = document.querySelector('[data-search-input]')
 const pop = document.querySelector('[data-search-results]')
 if (form && input && pop) {
-  let selected = -1
   let seq = 0
+  let quiet = false // Set while Escape hands focus back, so it doesn't reopen.
 
   const close = () => {
     pop.hidden = true
     input.setAttribute('aria-expanded', 'false')
-    selected = -1
   }
-  const links = () => [...pop.querySelectorAll('a[data-hit]')]
-  const select = (i) => {
+  // Arrow keys move real focus through the result links, so screen readers
+  // announce each one and Enter follows it natively.
+  const links = () => [...pop.querySelectorAll('a')]
+  const focusLink = (i) => {
     const all = links()
-    if (!all.length) return
-    selected = (i + all.length) % all.length
-    all.forEach((a, n) => a.setAttribute('aria-selected', String(n === selected)))
-    all[selected].scrollIntoView({ block: 'nearest' })
+    if (i < 0) return input.focus()
+    all[Math.min(i, all.length - 1)]?.focus()
   }
 
   const render = async () => {
@@ -176,16 +175,23 @@ if (form && input && pop) {
     pop.replaceChildren(hits.length ? list : el('p', {}, `Nothing matched “${q}”.`), all)
     pop.hidden = false
     input.setAttribute('aria-expanded', 'true')
-    selected = -1
   }
 
   input.addEventListener('input', render)
-  input.addEventListener('focus', () => { loadIndex().catch(() => {}); if (input.value.trim()) render() })
+  input.addEventListener('focus', () => {
+    loadIndex().catch(() => {})
+    if (!quiet && input.value.trim() && pop.hidden) render()
+    quiet = false
+  })
   input.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowDown') { e.preventDefault(); select(selected + 1) }
-    else if (e.key === 'ArrowUp') { e.preventDefault(); select(selected - 1) }
+    if (e.key === 'ArrowDown' && !pop.hidden) { e.preventDefault(); focusLink(0) }
     else if (e.key === 'Escape') { close(); input.blur() }
-    else if (e.key === 'Enter' && selected >= 0) { e.preventDefault(); links()[selected]?.click() }
+  })
+  pop.addEventListener('keydown', (e) => {
+    const i = links().indexOf(document.activeElement)
+    if (e.key === 'ArrowDown') { e.preventDefault(); focusLink(i + 1) }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); focusLink(i - 1) }
+    else if (e.key === 'Escape') { e.preventDefault(); close(); quiet = true; input.focus() }
   })
   document.addEventListener('click', (e) => { if (!form.contains(e.target)) close() })
   form.addEventListener('focusout', (e) => { if (!form.contains(e.relatedTarget)) close() })

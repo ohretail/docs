@@ -211,7 +211,7 @@ input::placeholder { color: var(--muted); opacity: 1; }
   border-radius: 6px;
   text-decoration: none;
 }
-.search-pop a:hover, .search-pop a[aria-selected="true"] { background: var(--sunken); color: var(--text); }
+.search-pop a:hover, .search-pop a:focus { background: var(--sunken); color: var(--text); }
 .search-pop .search-hit-title { display: block; font-weight: 650; }
 .search-pop .search-hit-path { display: block; color: var(--muted); font-size: .85rem; }
 .search-pop p { margin: 0; padding: .6rem .7rem; color: var(--muted); }

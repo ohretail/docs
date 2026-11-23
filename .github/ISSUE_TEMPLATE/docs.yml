@@ -2,6 +2,11 @@ name: Problem with a guide
 description: A page on docs.ohretail.com is wrong, unclear, or out of date.
 labels: [documentation]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        **This issue will be public.** Don't include passwords, PINs, invitation
+        or reset links, register setup files, or customer details.
   - type: input
     id: page
     attributes:
