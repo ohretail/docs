@@ -98,8 +98,8 @@ Colours, logos, and faces come from
   `face-brows.svg` (no search results) follow the "faces are for moments" rule.
 
 The type matches ohretail.com: Archivo for text and IBM Plex Mono for code, both
-self-hosted under the SIL Open Font License (`static/fonts/`). The screenshots
-in `static/img/` are the same disposable-data captures used on ohretail.com.
+self-hosted under the SIL Open Font License (`static/fonts/`). The POS screenshots
+in `static/img/` were captured in a local preview with a disposable sample catalog.
 
 Search runs in the browser over `/index.json`, which Hugo builds from every
 page. Pages work without JavaScript. The Content-Security-Policy in

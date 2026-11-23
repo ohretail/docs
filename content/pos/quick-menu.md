@@ -13,7 +13,7 @@ large catalog is only a few taps deep: **Feed → Chicken → Layer pellets**.
 All registers share one menu. Your changes are a draft until you choose **Save
 changes**, and then every register gets them.
 
-{{< shot name="pos-menu-editor" alt="The menu editor, with the item list on the left and a preview of the register's Feed menu on the right. An item is being dragged onto an empty slot." caption="The menu editor, mid-drag. The item list is on the left and the register preview on the right." >}}
+{{< shot name="pos-menu-editor" alt="The Quick menu editor with Layer pellets selected in the catalog on the left and the Feed menu grid on the right." caption="Select an item on the left, then tap an empty slot in the register preview to place it." >}}
 
 ## Open the editor
 
