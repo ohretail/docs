@@ -183,7 +183,7 @@ To cancel out the test sale, choose **History** beside the scan bar, select the
 sale, choose **Void & refund**, pay it back in **Cash**, and choose **Complete
 refund**. Both the sale and the refund stay in your records, marked as voided.
 
-{{< shot name="pos-register" alt="The register with two items in the sale, the Feed then Chicken menu open, and Back and Home buttons above the item tiles" caption="The register. The sale is on the left, and the menu path, Back, and Home sit above the tiles." >}}
+{{< shot name="pos-register" alt="Register 1 with Layer pellets and Chick starter in the current sale on the left, and the Feed then Chicken menu open on the right." caption="The current sale is on the left. **Back** and **Home** sit above the item tiles when a nested menu is open." >}}
 
 ## 9. Add a customer screen (optional)
 
